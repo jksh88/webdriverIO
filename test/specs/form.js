@@ -13,9 +13,7 @@ describe('form submission', async () => {
     // const button = await $("'button[name='everest_forms[submit]']'");
     const button = await $('#evf-submit-277');
     await button.click();
-    const alert = await $(
-      'div[class="everest-forms-notice everest-forms-notice--success everest-forms-submission-scroll"]'
-    );
+    const alert = await $('div[class*="everest-forms-notice"]');
 
     const alertText = await alert.getText();
     await expect(alertText).toEqual(
