@@ -1,6 +1,6 @@
 describe('nav', () => {
   it.only('Get the texts of all menu items and assert them -- using wait commands', async () => {
-    browser.pause(500);
+    // browser.pause(500);
     browser.url('/');
 
     const expectedLinks = [
@@ -12,6 +12,17 @@ describe('nav', () => {
       'My account',
     ];
 
+    // await $('#primary-menu');
+
+    await browser.waitUntil(
+      async () => {
+        const textToSee = await $('#primary-menu li').getText();
+        return textToSee === 'Home';
+      },
+      {
+        timeout: 5000,
+      }
+    );
     const elems = await $$('#primary-menu > li[id^="menu"]');
     console.log('**** first element text: ', await elems[0].getText());
 
