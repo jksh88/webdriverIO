@@ -1,14 +1,16 @@
+import HomePage from '../pages/home-page';
+
 describe('contact', () => {
   it('fill in textfield and submit', async () => {
     await browser.url('/contact');
-    await $('#evf-277-field_ys0GeZISRs-1').addValue('Jojo');
-    await $('#evf-277-field_LbH5NxasXM-2').addValue('test@test.mail');
-    await $('#evf-277-field_66FR384cge-3').addValue('111-111-1111');
-    await $('#evf-277-field_yhGx3FOwr2-4').addValue('Hello');
+    await HomePage.ContactComponent.name.addValue('Jojo');
+    await HomePage.ContactComponent.email.addValue('test@test.mail');
+    await HomePage.ContactComponent.phone.addValue('111-111-1111');
+    await HomePage.ContactComponent.message.addValue('Hello');
 
     // await browser.debug();
 
-    await $('button[type="submit"]').click();
+    await HomePage.ContactComponent.submitBtn.click();
 
     // browser.pause();
     const successAlert = await $("[role='alert']");
