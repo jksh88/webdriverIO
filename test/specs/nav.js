@@ -1,9 +1,10 @@
 const { link } = require('fs');
-import NavComponent from '../pages/components/nav-comp.js';
+import HomePage from '../pages/home-page.js';
 
 describe('nav', () => {
   it('Get the texts of all menu items and assert them', async () => {
-    await browser.url('/');
+    // await browser.url('/');
+    await HomePage.open();
 
     const expectedLinks = [
       'Home',
@@ -15,7 +16,7 @@ describe('nav', () => {
     ];
 
     // const elems = await $$('#primary-menu > li[id^="menu"]');
-    const elems = await NavComponent.linksNavMenu;
+    const elems = await HomePage.NavComponent.linksNavMenu;
     // console.log('ELEMS: ', elems);
     console.log('**** first element text: ', await elems[0].getText());
 
