@@ -1,22 +1,33 @@
-// Practice E-Commerce Site – Automation Bro
-// https://practice.automationbro.com/
+import HomePage from '../pages/home-page.js';
 
 describe('Home', () => {
-  // it('logo click leads to url that doesn not contain get-started text', async () => {
-  //   await browser.url('https://practice.automationbro.com');
-  //   // await $('//img[@alt="Practice E-Commerce Site"]').click();
-  //   const logo = await $('.custom-logo');
-  //   await logo.click();
-  //   await expect(browser).not.toHaveUrlContaining('get-started');
-  // });
+  it('Open url and assert title', async () => {
+    await HomePage.open();
+  });
+
+  it('Open About Page and assert url', async () => {
+    await browser.url('/about');
+    await expect(browser).toHaveUrl(
+      'https://practice.automationbro.com/about/'
+    );
+  });
+
+  it('Click get started btn and assert url contains get-started text', async () => {
+    await HomePage.open();
+    await HomePage.startedBtn.click();
+    await expect(browser).toHaveUrlContaining('get-started');
+  });
+
+  it('logo click leads to url that doesn not contain get-started text', async () => {
+    await HomePage.open();
+    await HomePage.customLogo.click();
+    await expect(browser).not.toHaveUrlContaining('get-started');
+  });
 
   it('find heading element and assert its text', async () => {
-    await browser.url('https://practice.automationbro.com');
-
-    const elem = await $('.elementor-widget-container > h1');
-    console.log('ELEM: ', elem);
-    // const heading = await elem.getText();
-    // await expect(heading).toEqual('Think different. Make different.');
-    await expect(elem).toHaveText('Think different. Make different.');
+    await HomePage.open();
+    await expect(HomePage.slogan).toHaveText(
+      'Think different. Make different.'
+    );
   });
 });
