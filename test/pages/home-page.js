@@ -1,4 +1,5 @@
 import NavComponent from './components/nav-comp';
+import BlogComponent from './components/blog-comp';
 
 class HomePage {
   open() {
@@ -19,6 +20,10 @@ class HomePage {
 
   get NavComponent() {
     return NavComponent;
+  }
+
+  get BlogComponent() {
+    return BlogComponent;
   }
 }
 
