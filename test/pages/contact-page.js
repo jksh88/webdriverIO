@@ -1,4 +1,8 @@
-class ContactComponent {
+class ContactPage {
+  open() {
+    return browser.url('/contact');
+  }
+
   get name() {
     return $('#evf-277-field_ys0GeZISRs-1');
   }
@@ -20,4 +24,4 @@ class ContactComponent {
   }
 }
 
-export default new ContactComponent();
+export default new ContactPage();

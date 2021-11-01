@@ -1,16 +1,16 @@
-import HomePage from '../pages/home-page';
+import ContactPage from '../pages/contact-page';
 
 describe('contact', () => {
   it('fill in textfield and submit', async () => {
-    await browser.url('/contact');
-    await HomePage.ContactComponent.name.addValue('Jojo');
-    await HomePage.ContactComponent.email.addValue('test@test.mail');
-    await HomePage.ContactComponent.phone.addValue('111-111-1111');
-    await HomePage.ContactComponent.message.addValue('Hello');
+    await ContactPage.open();
+    await ContactPage.name.addValue('Jojo');
+    await ContactPage.email.addValue('test@test.mail');
+    await ContactPage.phone.addValue('111-111-1111');
+    await ContactPage.message.addValue('Hello');
 
     // await browser.debug();
 
-    await HomePage.ContactComponent.submitBtn.click();
+    await ContactPage.submitBtn.click();
 
     // browser.pause();
     const successAlert = await $("[role='alert']");
