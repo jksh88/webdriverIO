@@ -2,10 +2,15 @@ import HomePage from '../pages/home-page.js';
 
 describe('Home', () => {
   before('Open home url', async () => {
+    console.log('before hook !');
+  });
+
+  beforeEach(async () => {
+    console.log('This runs before each test');
     await HomePage.open();
   });
 
-  xit('Open About Page and assert url', async () => {
+  it('Open About Page and assert url', async () => {
     await browser.url('/about');
     await expect(browser).toHaveUrl(
       'https://practice.automationbro.com/about/'
