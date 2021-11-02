@@ -10,6 +10,14 @@ describe('Home', () => {
     await HomePage.open();
   });
 
+  after(async () => {
+    'used for test cleanup';
+  });
+
+  afterEach(async () => {
+    console.log('This runs after each test');
+  });
+
   it('Open About Page and assert url', async () => {
     await browser.url('/about');
     await expect(browser).toHaveUrl(
