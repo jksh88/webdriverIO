@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@wdio/cli": "^7.16.2",
+    "faker": "^5.5.3",
     "node": "^14.15.0"
   },
   "devDependencies": {
