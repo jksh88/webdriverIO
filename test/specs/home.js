@@ -1,4 +1,5 @@
 import HomePage from '../pages/home-page.js';
+import allureReporter from '@wdio/allure-reporter';
 
 describe('Home', () => {
   before('Open home url', async () => {
@@ -18,6 +19,11 @@ describe('Home', () => {
     console.log('This runs after each test');
   });
 
+  it('Open url and assert title', async () => {
+    allureReporter.addSeverity('minor');
+    await expect(browser).toHaveTitleContaining('Automation');
+  });
+
   it('Open About Page and assert url', async () => {
     await browser.url('/about');
     await expect(browser).toHaveUrl(
@@ -33,6 +39,7 @@ describe('Home', () => {
 
   it('logo click leads to url that doesn not contain get-started text', async () => {
     // await HomePage.open();
+    allureReporter.addFeature('Logo Verification');
     await HomePage.customLogo.click();
     await expect(browser).not.toHaveUrlContaining('get-started');
   });

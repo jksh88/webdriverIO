@@ -1,8 +1,11 @@
 const { link } = require('fs');
 import HomePage from '../pages/home-page.js';
+import allureReporter from '@wdio/allure-reporter';
 
 describe('nav', () => {
   it('Get the texts of all menu items and assert them', async () => {
+    allureReporter.addFeature('Navigation');
+    allureReporter.addSeverity('critical');
     // await browser.url('/');
     await HomePage.open();
 
